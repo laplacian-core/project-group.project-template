@@ -1,0 +1,25 @@
+_title: &title
+  en: |
+    Project list
+  ja: |
+    プロジェクト一覧
+  zh: |
+    项目清单
+
+_content: &content
+  en: |
+    {{#each project.subprojects as |subproject| ~}}
+    - [**{{lookup subproject.title lang.code}}**](<subproject.source_repository.url>)
+
+    {{#each (lookup entity.description lang.code) as |line| ~}}
+    > {{line}}
+    {{/each}}
+
+project:
+  document:
+    sections:
+    - name: index
+      sub_sections:
+      - name: project-list
+        title: *title
+        content: *content

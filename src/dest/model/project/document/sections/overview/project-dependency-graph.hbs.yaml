@@ -1,0 +1,25 @@
+_title: &title
+  en: |
+    Project dependencies
+  ja: |
+    プロジェクト依存関係
+  zh: |
+    项目依赖性
+_content: &content
+  en: |
+    The following graph shows the dependencies between each project.
+    ![](./doc/image/project-dependency-graph.svg)
+  ja: |
+    以下の図は、各プロジェクト間の依存関係を表したグラフです。
+    ![](./doc/image/project-dependency-graph.svg)
+  zh: |
+    下图是每个项目之间的依赖关系。
+    ![](./doc/image/project-dependency-graph.svg)
+project:
+  document:
+    sections:
+    - name: overview
+      sub_sections:
+      - name: project-dependency-graph
+        title: *title
+        content: *content
