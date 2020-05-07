@@ -9,6 +9,10 @@
 
 <!-- @toc@ -->
 ## Table of contents
+- [概述](#概述)
+
+  * [项目依赖性](#项目依赖性)
+
 - [如何使用](#如何使用)
 
 - [索引](#索引)
@@ -22,6 +26,15 @@
 <!-- @toc@ -->
 
 <!-- @main-content@ -->
+## 概述
+
+
+### 项目依赖性
+
+
+下图是每个项目之间的依赖关系。
+![](./doc/image/project-dependency-graph.svg)
+
 ## 如何使用
 
 要应用此template模块，请在项目定义中加入以下条目
@@ -147,8 +160,9 @@ $ ./script/generate --dry-run
 - [model/project/scripts/generate.yaml](<./model/project/scripts/generate.yaml>)
 - [model/project/scripts/publish-local.yaml](<./model/project/scripts/publish-local.yaml>)
 - [model/project.yaml](<./model/project.yaml>)
-- [src/dest/doc/image/project-dependeny-graph.puml.hbs](<./src/dest/doc/image/project-dependeny-graph.puml.hbs>)
+- [src/dest/doc/image/project-dependency-graph.puml.hbs](<./src/dest/doc/image/project-dependency-graph.puml.hbs>)
 - [src/dest/model/project/document/sections/index/{if project.subprojects}/project-list.yaml](<./src/dest/model/project/document/sections/index/{if project.subprojects}/project-list.yaml>)
+- [src/dest/model/project/document/sections/overview/project-dependency-graph.hbs.yaml](<./src/dest/model/project/document/sections/overview/project-dependency-graph.hbs.yaml>)
 
 
 <!-- @main-content@ -->

@@ -9,6 +9,10 @@
 
 <!-- @toc@ -->
 ## Table of contents
+- [概要](#概要)
+
+  * [プロジェクト依存関係](#プロジェクト依存関係)
+
 - [使用方法](#使用方法)
 
 - [インデックス](#インデックス)
@@ -22,6 +26,15 @@
 <!-- @toc@ -->
 
 <!-- @main-content@ -->
+## 概要
+
+
+### プロジェクト依存関係
+
+
+以下の図は、各プロジェクト間の依存関係を表したグラフです。
+![](./doc/image/project-dependency-graph.svg)
+
 ## 使用方法
 
 この templateモジュールを適用するには、プロジェクト定義に以下のエントリを追加してください。
@@ -147,8 +160,9 @@ $ ./script/generate --dry-run
 - [model/project/scripts/generate.yaml](<./model/project/scripts/generate.yaml>)
 - [model/project/scripts/publish-local.yaml](<./model/project/scripts/publish-local.yaml>)
 - [model/project.yaml](<./model/project.yaml>)
-- [src/dest/doc/image/project-dependeny-graph.puml.hbs](<./src/dest/doc/image/project-dependeny-graph.puml.hbs>)
+- [src/dest/doc/image/project-dependency-graph.puml.hbs](<./src/dest/doc/image/project-dependency-graph.puml.hbs>)
 - [src/dest/model/project/document/sections/index/{if project.subprojects}/project-list.yaml](<./src/dest/model/project/document/sections/index/{if project.subprojects}/project-list.yaml>)
+- [src/dest/model/project/document/sections/overview/project-dependency-graph.hbs.yaml](<./src/dest/model/project/document/sections/overview/project-dependency-graph.hbs.yaml>)
 
 
 <!-- @main-content@ -->

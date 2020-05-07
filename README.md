@@ -9,6 +9,10 @@ A template to generate documentation about a project group.
 
 <!-- @toc@ -->
 ## Table of contents
+- [Overview](#overview)
+
+  * [Project dependencies](#project-dependencies)
+
 - [Usage](#usage)
 
 - [Index](#index)
@@ -22,6 +26,15 @@ A template to generate documentation about a project group.
 <!-- @toc@ -->
 
 <!-- @main-content@ -->
+## Overview
+
+
+### Project dependencies
+
+
+The following graph shows the dependencies between each project.
+![](./doc/image/project-dependency-graph.svg)
+
 ## Usage
 
 To apply this Template module, add the following entry to your project definition.
@@ -152,8 +165,9 @@ $ ./script/generate --dry-run
 - [model/project/scripts/generate.yaml](<./model/project/scripts/generate.yaml>)
 - [model/project/scripts/publish-local.yaml](<./model/project/scripts/publish-local.yaml>)
 - [model/project.yaml](<./model/project.yaml>)
-- [src/dest/doc/image/project-dependeny-graph.puml.hbs](<./src/dest/doc/image/project-dependeny-graph.puml.hbs>)
+- [src/dest/doc/image/project-dependency-graph.puml.hbs](<./src/dest/doc/image/project-dependency-graph.puml.hbs>)
 - [src/dest/model/project/document/sections/index/{if project.subprojects}/project-list.yaml](<./src/dest/model/project/document/sections/index/{if project.subprojects}/project-list.yaml>)
+- [src/dest/model/project/document/sections/overview/project-dependency-graph.hbs.yaml](<./src/dest/model/project/document/sections/overview/project-dependency-graph.hbs.yaml>)
 
 
 <!-- @main-content@ -->
