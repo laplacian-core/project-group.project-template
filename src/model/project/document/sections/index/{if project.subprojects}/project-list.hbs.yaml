@@ -7,13 +7,16 @@ _title: &title
     项目清单
 
 _content: &content
-  en: |
+  {{#each project.document.languages as |lang| ~}}
+  {{lang.code}}: |
     {{#each project.subprojects as |subproject| ~}}
-    - [**{{lookup subproject.title lang.code}}**](<subproject.source_repository.url>)
+    - [**{{subproject.group}}/{{subproject.name}}**](<{{subproject.source_repository.url}}>)
 
-    {{#each (lookup entity.description lang.code) as |line| ~}}
+    {{#each (lookup subproject.description lang.code) as |line| ~}}
     > {{line}}
     {{/each}}
+    {{/each}}
+  {{/each}}
 
 project:
   document:

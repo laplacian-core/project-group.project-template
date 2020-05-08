@@ -61,7 +61,7 @@ diff --color -r PROJECT_HOME/.NEXT/somewhere/something.md PROJECT_HOME/somewhere
 内容に問題が無ければ、下記コマンドを実行して変更を反映してください。
 
 ```console
-$ ./script/generate --dry-run
+$ ./script/generate
 
 ```
 
@@ -160,9 +160,9 @@ $ ./script/generate --dry-run
 - [model/project/scripts/generate.yaml](<./model/project/scripts/generate.yaml>)
 - [model/project/scripts/publish-local.yaml](<./model/project/scripts/publish-local.yaml>)
 - [model/project.yaml](<./model/project.yaml>)
-- [src/dest/doc/image/project-dependency-graph.puml.hbs](<./src/dest/doc/image/project-dependency-graph.puml.hbs>)
-- [src/dest/model/project/document/sections/index/{if project.subprojects}/project-list.yaml](<./src/dest/model/project/document/sections/index/{if project.subprojects}/project-list.yaml>)
-- [src/dest/model/project/document/sections/overview/project-dependency-graph.hbs.yaml](<./src/dest/model/project/document/sections/overview/project-dependency-graph.hbs.yaml>)
+- [src/doc/image/project-dependency-graph.puml.hbs](<./src/doc/image/project-dependency-graph.puml.hbs>)
+- [src/model/project/document/sections/index/{if project.subprojects}/project-list.hbs.yaml](<./src/model/project/document/sections/index/{if project.subprojects}/project-list.hbs.yaml>)
+- [src/model/project/document/sections/overview/project-dependency-graph.hbs.yaml](<./src/model/project/document/sections/overview/project-dependency-graph.hbs.yaml>)
 
 
 <!-- @main-content@ -->

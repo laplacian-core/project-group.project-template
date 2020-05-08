@@ -1,0 +1,33 @@
+@startuml
+left to right direction
+
+{{#each project_types as |project_type| ~}}
+  [{{project_type.name}}] <<project type>>
+{{/each}}
+
+{{#each (filter project_types '@it.base_type') as |project_type| ~}}
+  [{{project_type.name}}] --> [{{project_type.base_type.name}}]
+{{/each}}
+
+{{define 'subprojects' project.subprojects ~}}
+{{#each  (unique (map subprojects '@it.group')) as |subproject_group| ~}}
+package "{{subproject_group}}" {
+  {{#each (filter project.subprojects '(eq @it.group subproject_group)') as |subproject| ~}}
+  [{{subproject.name}}] <<{{subproject.type}}>>
+  [{{subproject.name}}] --> [{{subproject.type}}]
+  {{/each}}
+}
+{{/each}}
+
+{{#each project_types as |project_type| ~}}
+  {{define 'dependent_modules' (concat
+    project_type.models
+    project_type.templates
+    project_type.plugins
+  ) ~}}
+  {{#each dependent_modules as |template|}}
+  [{{project_type.name}}] ..> [{{template.name}}]
+  {{/each}}
+{{/each}}
+
+@enduml
