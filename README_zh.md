@@ -1,7 +1,7 @@
 <!-- @head-content@ -->
-# laplacian/project-group.document-template
+# laplacian/project-group.project-template
 
-一个模板，用于生成关于项目组的文件。
+这个模板是项目组用来生成标准的项目配置和脚本，用于运营和开发的标准项目配置和脚本。
 
 
 *Read this in other languages*: [[English](README.md)] [[日本語](README_ja.md)]
@@ -37,13 +37,13 @@
 
 ## 如何使用
 
-要应用此template模块，请在项目定义中加入以下条目
+要应用此model模块，请在项目定义中加入以下条目
 
 ```yaml
 project:
-  templates:
+  models:
   - group: laplacian
-    name: project-group.document-template
+    name: project-group.project-template
     version: 1.0.0
 ```
 
@@ -134,7 +134,7 @@ $ ./script/generate
   >    (Default: 10)
 - [./script/publish-local.sh](<./scripts/publish-local.sh>)
 
-  项目中的资源生成后，在`./dest`目录下的资源作为模板模块建立，并在本地资源库中注册。
+  项目中的资源生成后，在`./dest`目录下的资源作为模型模块建立，并在本地资源库中注册。
 
   > Usage: publish-local.sh [OPTION]...
   >

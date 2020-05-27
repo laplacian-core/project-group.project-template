@@ -1,7 +1,7 @@
 <!-- @head-content@ -->
-# laplacian/project-group.document-template
+# laplacian/project-group.project-template
 
-A template to generate documentation about a project group.
+This is a template used by project groups to generate standard project file structure and scripts for operations and development.
 
 
 *Read this in other languages*: [[日本語](README_ja.md)] [[简体中文](README_zh.md)]
@@ -37,12 +37,12 @@ The following graph shows the dependencies between each project.
 
 ## Usage
 
-To apply this Template module, add the following entry to your project definition.
+To apply this Model module, add the following entry to your project definition.
 ```yaml
 project:
-  templates:
+  models:
   - group: laplacian
-    name: project-group.document-template
+    name: project-group.project-template
     version: 1.0.0
 ```
 
@@ -72,7 +72,7 @@ $ ./script/generate
 
 - [./script/generate.sh](<./scripts/generate.sh>)
 
-  Generates The resources in each directory of `src/` `model/` `template/` in this project.
+  Generates the resources in each directory of `src/` `model/` `template/` in this project.
   The results are reflected in each directory of `dest/` `doc/` `script/`.
 
   *Generator input files*
@@ -138,7 +138,7 @@ $ ./script/generate
 - [./script/publish-local.sh](<./scripts/publish-local.sh>)
 
   After the resources in the project are generated,
-  the resources in the `./dest` directory are built as a template module
+  the resources in the `./dest` directory are built as a model module
   and registered in the local repository.
 
   > Usage: publish-local.sh [OPTION]...

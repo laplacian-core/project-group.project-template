@@ -12,7 +12,7 @@ LF=$'\n'
 MODEL_FILES=()
 TEMPLATE_FILES=()
 TARGET_DIR=$PROJECT_BASE_DIR/generated
-LOCAL_REPO_PATH=$PROJECT_BASE_DIR/../mvn-repo
+LOCAL_REPO_PATH=$PROJECT_BASE_DIR/../../../mvn-repo
 REMOTE_REPO_PATH='https://raw.github.com/nabla-squared/mvn-repo/master'
 RAW_HOST='https://raw.githubusercontent.com/nabla-squared/laplacian.generator/master'
 
@@ -20,6 +20,7 @@ HELP=
 VERBOSE=
 PLUGINS=
 MODULES=
+MODEL_SCHEMA=
 
 main () {
   PLUGINS=$(plugin_def 'laplacian:laplacian.generator:1.0.0')
@@ -40,9 +41,6 @@ main () {
       template-files)
         TEMPLATE_FILES+=("${!OPTIND}"); OPTIND=$(($OPTIND+1))
         ;;
-      schema)
-        PLUGINS="$PLUGINS$LF    $(plugin_def ${!OPTIND})"; OPTIND=$(($OPTIND+1))
-        ;;
       plugin)
         PLUGINS="$PLUGINS$LF    $(plugin_def ${!OPTIND})"; OPTIND=$(($OPTIND+1))
         ;;
@@ -51,6 +49,9 @@ main () {
         ;;
       model)
         MODULES="$MODULES$LF    $(module_def model ${!OPTIND})"; OPTIND=$(($OPTIND+1))
+        ;;
+      model-schema)
+        MODEL_SCHEMA="${!OPTIND}"; OPTIND=$(($OPTIND+1))
         ;;
       local-repo)
         LOCAL_REPO_PATH="$(normalize_path ${!OPTIND})"; OPTIND=$(($OPTIND+1))
@@ -123,10 +124,15 @@ dependencies {
 }
 laplacianGenerate {
     target.set(project.file('${TARGET_DIR}'))
+$( set_model_schema )
 $( set_model_files )
 $( set_template_files )
 }
 END
+}
+
+set_model_schema () {
+  [ -z "$MODEL_SCHEMA" ] || printf "    modelSpec.get().modelSchema('%s')" $(normalize_path $MODEL_SCHEMA)
 }
 
 set_model_files () {

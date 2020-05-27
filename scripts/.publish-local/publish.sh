@@ -42,7 +42,7 @@ pluginManagement {
         jcenter()
     }
 }
-rootProject.name = "laplacian.project-group.document-template"
+rootProject.name = "laplacian.project-group.project-template"
 EOF
 }
 

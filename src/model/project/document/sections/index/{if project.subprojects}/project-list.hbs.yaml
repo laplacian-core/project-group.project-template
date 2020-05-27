@@ -1,3 +1,4 @@
+{{#if project.document.languages}}
 _title: &title
   en: |
     Project list
@@ -26,3 +27,4 @@ project:
       - name: project-list
         title: *title
         content: *content
+{{/if}}

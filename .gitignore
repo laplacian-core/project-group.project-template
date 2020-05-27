@@ -13,8 +13,8 @@ Thumbs.db
 .DS_Store
 
 # VSCode
-vscode/
-.vscode/
+/vscode/
+/.vscode/
 *.code-workspace
 
 # Java development

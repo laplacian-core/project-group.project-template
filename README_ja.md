@@ -1,7 +1,7 @@
 <!-- @head-content@ -->
-# laplacian/project-group.document-template
+# laplacian/project-group.project-template
 
-プロジェクトグループに関するドキュメントを生成するテンプレートです。
+プロジェクトグループ用の標準プロジェクト構成および、運用・開発用スクリプトを生成するテンプレートです。
 
 
 *Read this in other languages*: [[English](README.md)] [[简体中文](README_zh.md)]
@@ -37,12 +37,12 @@
 
 ## 使用方法
 
-この templateモジュールを適用するには、プロジェクト定義に以下のエントリを追加してください。
+この modelモジュールを適用するには、プロジェクト定義に以下のエントリを追加してください。
 ```yaml
 project:
-  templates:
+  models:
   - group: laplacian
-    name: project-group.document-template
+    name: project-group.project-template
     version: 1.0.0
 ```
 
@@ -133,7 +133,7 @@ $ ./script/generate
   >    (Default: 10)
 - [./script/publish-local.sh](<./scripts/publish-local.sh>)
 
-  プロジェクト内の資源を自動生成した後、ディレクトリにある資源をテンプレートモジュールとしてビルドし、
+  プロジェクト内の資源を自動生成した後、ディレクトリにある資源をモデルモジュールとしてビルドし、
   ローカルリポジトリに登録します。
 
   > Usage: publish-local.sh [OPTION]...

@@ -1,18 +1,23 @@
 project:
   group: laplacian
-  name: project-group.document-template
-  type: template
+  name: project-group.project-template
+  type: project-group
   namespace: laplacian
   version: '1.0.0'
   description:
     en: |
-      A template to generate documentation about a project group.
+      This is a template used by project groups to generate standard project file structure and scripts for operations and development.
     ja: |
-      プロジェクトグループに関するドキュメントを生成するテンプレートです。
+      プロジェクトグループ用の標準プロジェクト構成および、運用・開発用スクリプトを生成するテンプレートです。
     zh: |
-      一个模板，用于生成关于项目组的文件。
+      这个模板是项目组用来生成标准的项目配置和脚本，用于运营和开发的标准项目配置和脚本。
   source_repository:
-    url: https://github.com/nabla-squared/laplacian.project-group.document-template.git
+    url: https://github.com/nabla-squared/laplacian.project-group.project-template.git
     branch: master
+  module_repositories:
+    local:
+      path: ../../../mvn-repo
+    remote:
+    - https://github.com/nabla-squared/mvn-repo
   template_files:
-  - dest/
+  - 'dest/'
