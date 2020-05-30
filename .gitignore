@@ -14,7 +14,7 @@ Thumbs.db
 
 # VSCode
 /vscode/
-/.vscode/
+# /.vscode/
 *.code-workspace
 
 # Java development

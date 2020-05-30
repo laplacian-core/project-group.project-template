@@ -168,6 +168,7 @@ $ ./script/generate
 - [src/doc/image/project-dependency-graph.puml.hbs](<./src/doc/image/project-dependency-graph.puml.hbs>)
 - [src/model/project/document/sections/index/{if project.subprojects}/project-list.hbs.yaml](<./src/model/project/document/sections/index/{if project.subprojects}/project-list.hbs.yaml>)
 - [src/model/project/document/sections/overview/project-dependency-graph.hbs.yaml](<./src/model/project/document/sections/overview/project-dependency-graph.hbs.yaml>)
+- [src/scripts/install.hbs.sh](<./src/scripts/install.hbs.sh>)
 
 
 <!-- @main-content@ -->
