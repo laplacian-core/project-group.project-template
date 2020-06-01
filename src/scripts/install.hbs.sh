@@ -42,6 +42,15 @@ project:
       ../mvn-repo
     remote:
     - https://github.com/nabla-squared/mvn-repo
+  {{define 'project_types_modules' (filter project.subprojects '(eq @it.type "project-types")') ~}}
+  {{#if project_types_modules ~}}
+  models:
+  {{#each project_types_modules as |project_types_module| ~}}
+  - group: '{{project_types_module.group}}'
+    name: '{{project_types_module.name}}'
+    version: '{{project_types_module.version}}'
+  {{/each}}
+  {{/if}}
   model_files:
   - dest/
 EOF

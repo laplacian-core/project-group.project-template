@@ -51,7 +51,7 @@ parse_args() {
 
 show_usage () {
 cat << 'END'
-Usage: $(basename "$0") [OPTION]...
+Usage: ./scripts/publish-local.sh [OPTION]...
   -h, --help
     Displays how to use this command.
   -v, --verbose
