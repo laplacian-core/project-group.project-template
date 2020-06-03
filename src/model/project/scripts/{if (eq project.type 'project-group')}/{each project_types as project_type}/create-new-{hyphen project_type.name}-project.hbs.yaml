@@ -1,0 +1,77 @@
+__: |
+
+_description: &description
+  en: |
+    Adds a new {{project_type.name}} project to this project group.
+  ja: |
+    新規の{{project_type.name}}プロジェクトをこのプロジェクトグループに追加します。
+  zh: |
+    将一个新的{{project_type.name}}项目添加到这个项目组中。
+
+_options: &options
+- name: help
+  short_name: h
+  is_flag: true
+  description:
+    en: |
+      Displays how to use this command.
+    ja: |
+      このコマンドの使用方法を表示します。
+    zh: |
+      显示如何使用此命令。
+
+- name: verbose
+  short_name: v
+  is_flag: true
+  description:
+    en: |
+      Displays more detailed command execution information.
+    ja: |
+      より詳細なコマンドの実行情報を表示します。
+    zh: |
+      显示更详细的命令执行信息。
+
+- name: project-name
+  is_interactive: true
+  is_required: true
+  prompt: |
+    New project's name:
+  description:
+    en: |
+      New project's name
+    ja: |
+      新規プロジェクト名
+    zh: |
+      新项目的名称
+
+- name: project-version
+  is_interactive: true
+  default_value: '0.0.1'
+  prompt: |
+    The initial version number:
+  description:
+    en: |
+      The initial version number
+    ja: |
+      初期バージョン番号
+    zh: |
+      最初的版本号
+
+- name: namespace
+  is_interactive: true
+  default_value: '{{dot-delimited project.group}}'
+  prompt: |
+    The initial version number:
+  description:
+    en: |
+      Namespace
+    ja: |
+      名前空間
+    zh: |
+      名称空间
+
+project:
+  scripts:
+  - name: create-new-{{hyphen project_type.name}}-project
+    description: *description
+    options: *options

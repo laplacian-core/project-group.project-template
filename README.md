@@ -37,10 +37,10 @@ The following graph shows the dependencies between each project.
 
 ## Usage
 
-To apply this Model module, add the following entry to your project definition.
+To apply this Template module, add the following entry to your project definition.
 ```yaml
 project:
-  models:
+  templates:
   - group: laplacian
     name: project-group.project-template
     version: 1.0.0
@@ -138,7 +138,7 @@ $ ./script/generate
 - [./script/publish-local.sh](<./scripts/publish-local.sh>)
 
   After the resources in the project are generated,
-  the resources in the `./dest` directory are built as a model module
+  the resources in the `./dest` directory are built as a template module
   and registered in the local repository.
 
   > Usage: publish-local.sh [OPTION]...
@@ -166,6 +166,8 @@ $ ./script/generate
 - [src/doc/image/project-dependency-graph.puml.hbs](<./src/doc/image/project-dependency-graph.puml.hbs>)
 - [src/model/project/document/sections/index/{if project.subprojects}/project-list.hbs.yaml](<./src/model/project/document/sections/index/{if project.subprojects}/project-list.hbs.yaml>)
 - [src/model/project/document/sections/overview/project-dependency-graph.hbs.yaml](<./src/model/project/document/sections/overview/project-dependency-graph.hbs.yaml>)
+- [src/model/project/scripts/{if (eq project.type 'project-group')}/{each project_types as project_type}/create-new-{hyphen project_type.name}-project.hbs.yaml](<./src/model/project/scripts/{if (eq project.type 'project-group')}/{each project_types as project_type}/create-new-{hyphen project_type.name}-project.hbs.yaml>)
+- [src/scripts/{if (eq project.type 'project-group')}/{each project_types as project_type}/.create-new-{hyphen project_type.name}-project/main.hbs.sh](<./src/scripts/{if (eq project.type 'project-group')}/{each project_types as project_type}/.create-new-{hyphen project_type.name}-project/main.hbs.sh>)
 - [src/scripts/install.hbs.sh](<./src/scripts/install.hbs.sh>)
 
 

@@ -104,7 +104,6 @@ generate() {
     --plugin 'laplacian:laplacian.project.domain-model-plugin:1.0.0' \
     --plugin 'laplacian:laplacian.common-model-plugin:1.0.0' \
     --template 'laplacian:laplacian.generator.project-template:1.0.0' \
-    --template 'laplacian:laplacian.project-group.project-template:1.0.0' \
     --model 'laplacian:laplacian.project.project-types:1.0.0' \
     --model 'laplacian:laplacian.project.domain-model:1.0.0' \
     --model 'laplacian:laplacian.common-model:1.0.0' \

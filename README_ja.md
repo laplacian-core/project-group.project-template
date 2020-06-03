@@ -37,10 +37,10 @@
 
 ## 使用方法
 
-この modelモジュールを適用するには、プロジェクト定義に以下のエントリを追加してください。
+この templateモジュールを適用するには、プロジェクト定義に以下のエントリを追加してください。
 ```yaml
 project:
-  models:
+  templates:
   - group: laplacian
     name: project-group.project-template
     version: 1.0.0
@@ -133,7 +133,7 @@ $ ./script/generate
   >    (Default: 10)
 - [./script/publish-local.sh](<./scripts/publish-local.sh>)
 
-  プロジェクト内の資源を自動生成した後、ディレクトリにある資源をモデルモジュールとしてビルドし、
+  プロジェクト内の資源を自動生成した後、ディレクトリにある資源をテンプレートモジュールとしてビルドし、
   ローカルリポジトリに登録します。
 
   > Usage: publish-local.sh [OPTION]...
@@ -161,6 +161,8 @@ $ ./script/generate
 - [src/doc/image/project-dependency-graph.puml.hbs](<./src/doc/image/project-dependency-graph.puml.hbs>)
 - [src/model/project/document/sections/index/{if project.subprojects}/project-list.hbs.yaml](<./src/model/project/document/sections/index/{if project.subprojects}/project-list.hbs.yaml>)
 - [src/model/project/document/sections/overview/project-dependency-graph.hbs.yaml](<./src/model/project/document/sections/overview/project-dependency-graph.hbs.yaml>)
+- [src/model/project/scripts/{if (eq project.type 'project-group')}/{each project_types as project_type}/create-new-{hyphen project_type.name}-project.hbs.yaml](<./src/model/project/scripts/{if (eq project.type 'project-group')}/{each project_types as project_type}/create-new-{hyphen project_type.name}-project.hbs.yaml>)
+- [src/scripts/{if (eq project.type 'project-group')}/{each project_types as project_type}/.create-new-{hyphen project_type.name}-project/main.hbs.sh](<./src/scripts/{if (eq project.type 'project-group')}/{each project_types as project_type}/.create-new-{hyphen project_type.name}-project/main.hbs.sh>)
 - [src/scripts/install.hbs.sh](<./src/scripts/install.hbs.sh>)
 
 

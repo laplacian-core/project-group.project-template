@@ -37,11 +37,11 @@
 
 ## 如何使用
 
-要应用此model模块，请在项目定义中加入以下条目
+要应用此template模块，请在项目定义中加入以下条目
 
 ```yaml
 project:
-  models:
+  templates:
   - group: laplacian
     name: project-group.project-template
     version: 1.0.0
@@ -134,7 +134,7 @@ $ ./script/generate
   >    (Default: 10)
 - [./script/publish-local.sh](<./scripts/publish-local.sh>)
 
-  项目中的资源生成后，在`./dest`目录下的资源作为模型模块建立，并在本地资源库中注册。
+  项目中的资源生成后，在`./dest`目录下的资源作为模板模块建立，并在本地资源库中注册。
 
   > Usage: publish-local.sh [OPTION]...
   >
@@ -161,6 +161,8 @@ $ ./script/generate
 - [src/doc/image/project-dependency-graph.puml.hbs](<./src/doc/image/project-dependency-graph.puml.hbs>)
 - [src/model/project/document/sections/index/{if project.subprojects}/project-list.hbs.yaml](<./src/model/project/document/sections/index/{if project.subprojects}/project-list.hbs.yaml>)
 - [src/model/project/document/sections/overview/project-dependency-graph.hbs.yaml](<./src/model/project/document/sections/overview/project-dependency-graph.hbs.yaml>)
+- [src/model/project/scripts/{if (eq project.type 'project-group')}/{each project_types as project_type}/create-new-{hyphen project_type.name}-project.hbs.yaml](<./src/model/project/scripts/{if (eq project.type 'project-group')}/{each project_types as project_type}/create-new-{hyphen project_type.name}-project.hbs.yaml>)
+- [src/scripts/{if (eq project.type 'project-group')}/{each project_types as project_type}/.create-new-{hyphen project_type.name}-project/main.hbs.sh](<./src/scripts/{if (eq project.type 'project-group')}/{each project_types as project_type}/.create-new-{hyphen project_type.name}-project/main.hbs.sh>)
 - [src/scripts/install.hbs.sh](<./src/scripts/install.hbs.sh>)
 
 

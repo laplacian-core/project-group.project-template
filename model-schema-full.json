@@ -728,6 +728,14 @@
             "description": "Defines this option is is_flag or not.",
             "type": "boolean"
           },
+          "is_interactive": {
+            "description": "Defines this option is is_interactive or not.",
+            "type": "boolean"
+          },
+          "prompt": {
+            "description": "The prompt of this option.",
+            "type": "string"
+          },
           "default_value": {
             "description": "The default_value of this option.",
             "type": "string"
