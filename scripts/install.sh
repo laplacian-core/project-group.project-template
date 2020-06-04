@@ -16,11 +16,38 @@ PROJECT_GENERATOR_MAIN="$SCRIPTS_DIR/.generate/main.sh"
 LAPLACIAN_GENERATOR="$SCRIPTS_DIR/laplacian-generate.sh"
 VSCODE_SETTING=".vscode/settings.json"
 
+PROJECT_TYPE='project-group'
+LOCAL_MODULE_REPOSITORY='../mvn-repo'
+
+OPT_NAMES='t:-:'
+
 main() {
+  parse_args "$@"
   show_processing_message
   create_blank_project_file
   install
   show_end_message
+}
+
+parse_args() {
+  while getopts $OPT_NAMES OPTION;
+  do
+    case $OPTION in
+    -)
+      case $OPTARG in
+      project-type)
+        PROJECT_TYPE=("${!OPTIND}"); OPTIND=$(($OPTIND+1));;
+      local-module-repository)
+        LOCAL_MODULE_REPOSITORY=("${!OPTIND}"); OPTIND=$(($OPTIND+1));;
+      *)
+        echo "ERROR: Unknown OPTION --$OPTARG" >&2
+        exit 1
+      esac
+      ;;
+    t) PROJECT_TYPE=("${!OPTIND}"); OPTIND=$(($OPTIND+1));;
+    esac
+  done
+  ARGS=$@
 }
 
 show_processing_message() {
@@ -32,14 +59,14 @@ create_blank_project_file() {
 project:
   group: ${PROJECT_GROUP_NAME}
   name: projects
-  type: project-group
+  type: $PROJECT_TYPE
   version: '1.0.0'
   description:
     en: |
       ${PROJECT_GROUP_NAME} projects.
   module_repositories:
     local:
-      ../mvn-repo
+      $LOCAL_MODULE_REPOSITORY
     remote:
     - https://github.com/nabla-squared/mvn-repo
   model_files:
