@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 set -e
-RAW_HOST=https://raw.githubusercontent.com/nabla-squared/laplacian.projects/master
+RAW_HOST='https://raw.githubusercontent.com/nabla-squared/laplacian.projects/master'
 
 PROJECT_DIR="$(pwd)"
 PROJECT_GROUP_NAME=$(basename $PROJECT_DIR)
@@ -16,15 +16,15 @@ PROJECT_GENERATOR_MAIN="$SCRIPTS_DIR/.generate/main.sh"
 LAPLACIAN_GENERATOR="$SCRIPTS_DIR/laplacian-generate.sh"
 VSCODE_SETTING=".vscode/settings.json"
 
-show_processing_message() {
-  echo "Installing Laplacian Generator scripts.."
-}
-
 main() {
   show_processing_message
   create_blank_project_file
   install
   show_end_message
+}
+
+show_processing_message() {
+  echo "Installing Laplacian Generator scripts.."
 }
 
 create_blank_project_file() {
@@ -36,7 +36,7 @@ project:
   version: '1.0.0'
   description:
     en: |
-      ${PROJCT_GROUP_NAME} projects.
+      ${PROJECT_GROUP_NAME} projects.
   module_repositories:
     local:
       ../mvn-repo

@@ -92,6 +92,7 @@ file_list() {
 }
 
 generate() {
+  LOCAL_MODULE_REPOSITORY=${LOCAL_MODULE_REPOSITORY:-"$PROJECT_BASE_DIR/../../../mvn-repo"}
   local generator_script="$PROJECT_BASE_DIR/scripts/laplacian-generate.sh"
   local schema_file_path="$(normalize_path 'model-schema-partial.json')"
   local schema_option=
@@ -112,7 +113,7 @@ generate() {
     --template-files $(normalize_path 'template/') \
     --template-files $(normalize_path 'dest/') \
     --target-dir "$NEXT_CONTENT_DIR_NAME" \
-    --local-repo "$LOCAL_REPO_PATH"
+    --local-repo "$LOCAL_MODULE_REPOSITORY"
 }
 
 has_settled() {

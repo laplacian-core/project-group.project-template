@@ -4,7 +4,6 @@ PROJECT_BASE_DIR=$(cd $"${BASH_SOURCE%/*}/../" && pwd)
 
 SCRIPT_BASE_DIR="$PROJECT_BASE_DIR/scripts"
 
-LOCAL_REPO_PATH="$PROJECT_BASE_DIR/../../../mvn-repo"
 
 OPT_NAMES='hvdr:-:'
 
@@ -13,6 +12,7 @@ HELP=
 VERBOSE=
 DRY_RUN=
 MAX_RECURSION=10
+LOCAL_MODULE_REPOSITORY=
 
 
 run_generate() {
@@ -36,6 +36,8 @@ parse_args() {
         DRY_RUN='yes';;
       max-recursion)
         MAX_RECURSION=("${!OPTIND}"); OPTIND=$(($OPTIND+1));;
+      local-module-repository)
+        LOCAL_MODULE_REPOSITORY=("${!OPTIND}"); OPTIND=$(($OPTIND+1));;
       *)
         echo "ERROR: Unknown OPTION --$OPTARG" >&2
         exit 1
@@ -66,6 +68,9 @@ Usage: ./scripts/generate.sh [OPTION]...
     The upper limit of the number of times to execute recursively
     when the contents of the `model/` `template/` directory are updated
     during the generation process. (Default: 10)
+  --local-module-repository [VALUE]
+    The repository path to store locally built modules.
+    The modules in this repository have the highest priority.
 END
 }
 
