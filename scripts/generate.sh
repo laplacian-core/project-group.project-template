@@ -13,12 +13,15 @@ VERBOSE=
 DRY_RUN=
 MAX_RECURSION=10
 LOCAL_MODULE_REPOSITORY=
+UPDATES_SCRIPTS_ONLY=
 
 
 run_generate() {
   parse_args "$@"
   ! [ -z $VERBOSE ] && set -x
   ! [ -z $HELP ] && show_usage && exit 0
+
+  source $SCRIPT_BASE_DIR/.generate/main.sh
   main
 }
 
@@ -38,6 +41,8 @@ parse_args() {
         MAX_RECURSION=("${!OPTIND}"); OPTIND=$(($OPTIND+1));;
       local-module-repository)
         LOCAL_MODULE_REPOSITORY=("${!OPTIND}"); OPTIND=$(($OPTIND+1));;
+      updates-scripts-only)
+        UPDATES_SCRIPTS_ONLY='yes';;
       *)
         echo "ERROR: Unknown OPTION --$OPTARG" >&2
         exit 1
@@ -71,8 +76,11 @@ Usage: ./scripts/generate.sh [OPTION]...
   --local-module-repository [VALUE]
     The repository path to store locally built modules.
     The modules in this repository have the highest priority.
+  --updates-scripts-only
+    Updates script files only.
+    This option is used to generate the generator script itself
+    when the project is initially generated.
 END
 }
 
-source $SCRIPT_BASE_DIR/.generate/main.sh
 run_generate "$@"

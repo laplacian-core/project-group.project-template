@@ -81,7 +81,7 @@ main () {
       --settings-file $SETTINGS_FILE \
       --project-dir $GRADLE_PROJECT_DIR \
       laplacianGenerate \
-      ${VERBOSE:+-i}
+      $([ -z "$VERBOSE" ] && echo '-q' || echo '-i')
   )
 }
 

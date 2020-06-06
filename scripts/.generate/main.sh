@@ -7,9 +7,9 @@ PREV_CONTENT_DIR="$PROJECT_BASE_DIR/$PREV_CONTENT_DIR_NAME"
 DEST_DIR_NAME='dest'
 SRC_DIR_NAME='src'
 
-CONTENT_DIRS='src template model'
-UPDATABLE_DIRS='dest scripts doc .vscode'
-CONTENT_FILES='.editorconfig .gitattributes .gitignore README.md README_*.md model-schema-*.json'
+CONTENT_DIRS=$([ -z $UPDATES_SCRIPTS_ONLY ] && echo 'src template model' || echo 'model')
+UPDATABLE_DIRS=$([ -z $UPDATES_SCRIPTS_ONLY ] && echo 'dest scripts doc .vscode' || echo 'scripts')
+CONTENT_FILES=$([ -z $UPDATES_SCRIPTS_ONLY ] && echo '.editorconfig .gitattributes .gitignore README.md README_*.md model-schema-*.json' || echo '')
 
 RECURSION_COUNT=1
 
@@ -28,7 +28,7 @@ main() {
   then
     trap apply_next_content EXIT
   else
-    diff --color -r $NEXT_CONTENT_DIR $PROJECT_BASE_DIR
+    git diff --no-index $NEXT_CONTENT_DIR $PROJECT_BASE_DIR
   fi
 }
 
@@ -127,15 +127,15 @@ apply_next_content() {
   (cd $PROJECT_BASE_DIR
     dirs=$(for each in $UPDATABLE_DIRS; do [ -d $each ] && echo $each || true; done)
     files=$(for each in $CONTENT_FILES; do [ -f $each ] && echo $each || true; done)
-    rm -rf $dirs
-    rm -f $files
+    [ -z "$dirs" ] || rm -rf $dirs
+    [ -z "$files" ] || rm -f $files
   )
 
   (cd $NEXT_CONTENT_DIR
     dirs=$(for each in $UPDATABLE_DIRS; do [ -d $each ] && echo $each || true; done)
     files=$(for each in $CONTENT_FILES; do [ -f $each ] && echo $each || true; done)
-    cp -rf $dirs $PROJECT_BASE_DIR
-    cp -f $files $PROJECT_BASE_DIR
+    [ -z "$dirs" ] || cp -rf $dirs $PROJECT_BASE_DIR
+    [ -z "$files" ] || cp -f $files $PROJECT_BASE_DIR
   )
 
   rm -rf $NEXT_CONTENT_DIR $PREV_CONTENT_DIR

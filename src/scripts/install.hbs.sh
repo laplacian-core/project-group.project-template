@@ -55,6 +55,7 @@ show_processing_message() {
 }
 
 create_blank_project_file() {
+  mkdir -p $(dirname $PROJECT_MODEL_FILE)
   cat <<EOF > $PROJECT_MODEL_FILE
 project:
   group: ${PROJECT_GROUP_NAME}
