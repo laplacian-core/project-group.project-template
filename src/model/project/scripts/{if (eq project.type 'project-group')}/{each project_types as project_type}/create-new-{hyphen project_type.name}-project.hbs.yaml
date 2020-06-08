@@ -33,7 +33,7 @@ _options: &options
 
 - name: project-name
   is_interactive: true
-  is_required: true
+  default_value: '{{hyphen project_type.name}}'
   prompt: |
     New project's name:
   description:
