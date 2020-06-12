@@ -12,7 +12,6 @@ MODEL_SCHEMA_FULL='model-schema-full.json'
 
 SCRIPTS_DIR='scripts'
 PROJECT_GENERATOR="$SCRIPTS_DIR/generate.sh"
-PROJECT_GENERATOR_MAIN="$SCRIPTS_DIR/.generate/main.sh"
 LAPLACIAN_GENERATOR="$SCRIPTS_DIR/laplacian-generate.sh"
 VSCODE_SETTING=".vscode/settings.json"
 
@@ -80,14 +79,13 @@ project:
   {{/each}}
   {{/if}}
   model_files:
-  - dest/
+  - dest/$MODEL_DIR
 EOF
 }
 
 install() {
   install_file $LAPLACIAN_GENERATOR
   install_file $PROJECT_GENERATOR
-  install_file $PROJECT_GENERATOR_MAIN
   install_file $VSCODE_SETTING
   install_file $MODEL_SCHEMA_FULL
   install_file $MODEL_SCHEMA_PARTIAL

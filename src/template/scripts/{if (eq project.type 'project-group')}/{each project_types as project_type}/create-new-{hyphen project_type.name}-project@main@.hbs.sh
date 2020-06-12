@@ -1,6 +1,4 @@
-#!/usr/bin/env bash
-
-SUBPROJECTS_DIR="src/project/subprojects/{{hyphen project.group}}"
+SUBPROJECTS_DIR="model/project/subprojects/{{hyphen project.group}}"
 
 main() {
   create_subproject_model_file
@@ -28,11 +26,11 @@ project:
 #     url: https://github.com/{{hyphen project.group}}/$PROJECT_NAME.git
     {{#if (eq project_type.role 'model') ~}}
     model_files:
-    - dest/
+    - dest/model
     {{/if}}
     {{#if (eq project_type.role 'template') ~}}
     template_files:
-    - dest/
+    - dest/template
     {{/if}}
 EOF
 }
@@ -43,5 +41,5 @@ generate_subproject() {
 }
 
 show_next_action_message() {
-  echo "The new subproject is created at ./subprojects/{{hyphen project.group}}.${PROJECT_NAME}/"
+  echo "The new subproject is created at ./subprojects/${PROJECT_NAME}/"
 }

@@ -6,13 +6,13 @@ project:
   version: '1.0.0'
   description:
     en: |
-      This is a template used by project groups to generate standard project file structure and scripts for operations and development.
+      This is a template used by project groups to generate standard project folder structure and scripts for operations and development.
     ja: |
       プロジェクトグループ用の標準プロジェクト構成および、運用・開発用スクリプトを生成するテンプレートです。
     zh: |
-      这个模板是项目组用来生成标准的项目配置和脚本，用于运营和开发的标准项目配置和脚本。
+      这个模板是项目组用来生成标准的项目文件夹结构和操作和开发脚本的模板。
   source_repository:
-    url: https://github.com/nabla-squared/laplacian.project-group.project-template.git
+    url: https://github.com/laplacian-core/project-group.project-template.git
     branch: master
   module_repositories:
     local:
@@ -20,4 +20,4 @@ project:
     remote:
     - https://github.com/nabla-squared/mvn-repo
   template_files:
-  - 'dest/'
+  - 'dest/template'

@@ -1,7 +1,7 @@
 <!-- @head-content@ -->
 # laplacian/project-group.project-template
 
-This is a template used by project groups to generate standard project file structure and scripts for operations and development.
+This is a template used by project groups to generate standard project folder structure and scripts for operations and development.
 
 
 *Read this in other languages*: [[日本語](README_ja.md)] [[简体中文](README_zh.md)]
@@ -179,12 +179,12 @@ $ ./script/generate
 
 
 - [model/project.yaml](<./model/project.yaml>)
-- [src/doc/image/project-dependency-graph.puml.hbs](<./src/doc/image/project-dependency-graph.puml.hbs>)
-- [src/model/project/document/sections/index/{if project.subprojects}/project-list.hbs.yaml](<./src/model/project/document/sections/index/{if project.subprojects}/project-list.hbs.yaml>)
-- [src/model/project/document/sections/overview/project-dependency-graph.hbs.yaml](<./src/model/project/document/sections/overview/project-dependency-graph.hbs.yaml>)
-- [src/model/project/scripts/{if (eq project.type 'project-group')}/{each project_types as project_type}/create-new-{hyphen project_type.name}-project.hbs.yaml](<./src/model/project/scripts/{if (eq project.type 'project-group')}/{each project_types as project_type}/create-new-{hyphen project_type.name}-project.hbs.yaml>)
-- [src/scripts/{if (eq project.type 'project-group')}/{each project_types as project_type}/.create-new-{hyphen project_type.name}-project/main.hbs.sh](<./src/scripts/{if (eq project.type 'project-group')}/{each project_types as project_type}/.create-new-{hyphen project_type.name}-project/main.hbs.sh>)
-- [src/scripts/install.hbs.sh](<./src/scripts/install.hbs.sh>)
+- [src/template/doc/image/project-dependency-graph.puml.hbs](<./src/template/doc/image/project-dependency-graph.puml.hbs>)
+- [src/template/model/project/document/sections/index/{if project.subprojects}/project-list.hbs.yaml](<./src/template/model/project/document/sections/index/{if project.subprojects}/project-list.hbs.yaml>)
+- [src/template/model/project/document/sections/overview/project-dependency-graph.hbs.yaml](<./src/template/model/project/document/sections/overview/project-dependency-graph.hbs.yaml>)
+- [src/template/model/project/scripts/{if (eq project.type 'project-group')}/{each project_types as project_type}/create-new-{hyphen project_type.name}-project.hbs.yaml](<./src/template/model/project/scripts/{if (eq project.type 'project-group')}/{each project_types as project_type}/create-new-{hyphen project_type.name}-project.hbs.yaml>)
+- [src/template/scripts/{if (eq project.type 'project-group')}/{each project_types as project_type}/create-new-{hyphen project_type.name}-project@main@.hbs.sh](<./src/template/scripts/{if (eq project.type 'project-group')}/{each project_types as project_type}/create-new-{hyphen project_type.name}-project@main@.hbs.sh>)
+- [src/template/scripts/install.hbs.sh](<./src/template/scripts/install.hbs.sh>)
 
 
 <!-- @main-content@ -->
