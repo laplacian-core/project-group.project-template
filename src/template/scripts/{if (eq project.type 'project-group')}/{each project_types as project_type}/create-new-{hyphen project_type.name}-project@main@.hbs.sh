@@ -35,11 +35,16 @@ project:
 EOF
 }
 
+hyphenize() {
+  local str=$1
+  echo  ${str//[_.: ]/-}
+}
+
 generate_subproject() {
   $SCRIPT_BASE_DIR/generate.sh
-  $SCRIPT_BASE_DIR/generate-${PROJECT_NAME}.sh
+  $SCRIPT_BASE_DIR/generate-$(hyphenize "$PROJECT_NAME").sh
 }
 
 show_next_action_message() {
-  echo "The new subproject is created at ./subprojects/${PROJECT_NAME}/"
+  echo "The new subproject is created at ./subprojects/$(hyphenize ${PROJECT_NAME})/"
 }
