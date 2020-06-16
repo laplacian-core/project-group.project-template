@@ -15,6 +15,7 @@ SKIP_GENERATION=
 LOCAL_MODULE_REPOSITORY=
 
 
+#@main@
 main() {
   if [ -z $SKIP_GENERATION ]
   then
@@ -22,8 +23,10 @@ main() {
   fi
   publish_local 'template'
 }
+#@main@
 
 GRADLE_DIR=${SCRIPT_BASE_DIR}/laplacian
+GRADLE="./gradlew"
 GRADLE_BUILD_FILE="$GRADLE_DIR/build.gradle"
 GRADLE_SETTINGS_FILE="$GRADLE_DIR/settings.gradle"
 DEST_DIR="$PROJECT_BASE_DIR/dest"
@@ -53,7 +56,7 @@ create_build_dir() {
 
 run_gradle() {
   (cd $GRADLE_DIR
-    ./gradlew \
+    $GRADLE \
       --stacktrace \
       --build-file build.gradle \
       --settings-file settings.gradle \
@@ -124,7 +127,8 @@ clean() {
   rm -f $GRADLE_BUILD_FILE $GRADLE_SETTINGS_FILE 2> /dev/null || true
 }
 
-#
+#@additional-declarations@
+#@additional-declarations@
 
 parse_args() {
   while getopts $OPT_NAMES OPTION;

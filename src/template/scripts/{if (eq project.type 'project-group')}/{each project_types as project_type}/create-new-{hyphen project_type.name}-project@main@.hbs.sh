@@ -1,15 +1,15 @@
 SUBPROJECTS_DIR="model/project/subprojects/{{hyphen project.group}}"
+NEW_PROJECTS_MODEL_FILE="$PROJECT_BASE_DIR/$SUBPROJECTS_DIR/$PROJECT_NAME.yaml"
 
 main() {
   create_subproject_model_file
-  generate_subproject
+  update_project
   show_next_action_message
 }
 
 create_subproject_model_file() {
-  local model_file="$PROJECT_BASE_DIR/$SUBPROJECTS_DIR/$PROJECT_NAME.yaml"
-  mkdir -p $(dirname $model_file)
-cat <<EOF > $model_file
+  mkdir -p $(dirname $NEW_PROJECTS_MODEL_FILE)
+cat <<EOF > $NEW_PROJECTS_MODEL_FILE
 _description: &description
   en: |
     The $PROJECT_NAME project.
@@ -40,11 +40,14 @@ hyphenize() {
   echo  ${str//[_.: ]/-}
 }
 
-generate_subproject() {
+update_project() {
   $SCRIPT_BASE_DIR/generate.sh
-  $SCRIPT_BASE_DIR/generate-$(hyphenize "$PROJECT_NAME").sh
 }
 
 show_next_action_message() {
-  echo "The new subproject is created at ./subprojects/$(hyphenize ${PROJECT_NAME})/"
+  echo ""
+  echo "Created the new project's definition at: $NEW_PROJECTS_MODEL_FILE"
+  echo "1. Edit this file if you need."
+  echo "2. Run ./scripts/generate-$(hyphenize ${PROJECT_NAME}).sh to generate the project's content."
+  echo ""
 }

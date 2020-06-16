@@ -29,6 +29,7 @@ CONTENT_FILES=$([ -z $UPDATES_SCRIPTS_ONLY ] && echo '.editorconfig .gitattribut
 
 RECURSION_COUNT=1
 
+#@main@
 main() {
   create_next_content_dir
   update_file_index
@@ -47,6 +48,7 @@ main() {
     git diff --no-index $NEXT_CONTENT_DIR $PROJECT_BASE_DIR
   fi
 }
+#@main@
 
 create_next_content_dir() {
   rm -rf $NEXT_CONTENT_DIR $PREV_CONTENT_DIR

@@ -5,6 +5,7 @@ PROJECT_BASE_DIR=$(cd $"${BASH_SOURCE%/*}/../" && pwd)
 SCRIPT_BASE_DIR="$PROJECT_BASE_DIR/scripts"
 GRADLE_PROJECT_DIR=$SCRIPT_BASE_DIR/laplacian
 GRADLE_FILE=$GRADLE_PROJECT_DIR/build.gradle
+GRADLE_PROPERTIES=$GRADLE_PROJECT_DIR/gradle.properties
 SETTINGS_FILE=$GRADLE_PROJECT_DIR/settings.gradle
 GRADLE_RUNTIME_DIR=$GRADLE_PROJECT_DIR/gradle/wrapper
 
@@ -71,6 +72,7 @@ main () {
   [ ! -z $HELP ] && show_usage && exit 0
   trap clean EXIT
   gradle_file
+  # gradle_properties
   settings_file
   install_gradle_runtime
   (
@@ -129,6 +131,14 @@ $( set_model_files )
 $( set_template_files )
 }
 END
+}
+
+gradle_properties() {
+  local jvm_args="-XX:StartFlightRecording=settings=default,filename=/tmp/recording.jfr,dumponexit=true"
+  cat <<EOF > $GRADLE_PROPERTIES
+org.gradle.jvmargs=$jvm_args
+org.gradle.daemon=false
+EOF
 }
 
 set_model_schema () {
