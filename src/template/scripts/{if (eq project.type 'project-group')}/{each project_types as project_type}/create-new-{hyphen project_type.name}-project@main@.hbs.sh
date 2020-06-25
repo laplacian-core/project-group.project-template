@@ -1,7 +1,10 @@
-SUBPROJECTS_DIR="model/project/subprojects/{{hyphen project.group}}"
-NEW_PROJECTS_MODEL_FILE="$PROJECT_BASE_DIR/$SUBPROJECTS_DIR/$PROJECT_NAME.yaml"
+SUBPROJECTS_DIR=
+NEW_PROJECTS_MODEL_FILE=
 
 main() {
+  SUBPROJECTS_DIR="model/project/subprojects/{{hyphen project.group}}"
+  NEW_PROJECTS_MODEL_FILE="$PROJECT_BASE_DIR/$SUBPROJECTS_DIR/$PROJECT_NAME.yaml"
+
   create_subproject_model_file
   update_project
   show_next_action_message

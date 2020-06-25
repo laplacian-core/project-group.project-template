@@ -15,7 +15,7 @@ SKIP_GENERATION=
 LOCAL_MODULE_REPOSITORY=
 
 
-#@main@
+# @main@
 main() {
   if [ -z $SKIP_GENERATION ]
   then
@@ -23,8 +23,9 @@ main() {
   fi
   publish_local 'template'
 }
-#@main@
+# @main@
 
+# @+additional-declarations|laplacian.generator.project-template-1.0.0!scripts/publish-local_additional-declarations_.hbs.sh@
 GRADLE_DIR=${SCRIPT_BASE_DIR}/laplacian
 GRADLE="./gradlew"
 GRADLE_BUILD_FILE="$GRADLE_DIR/build.gradle"
@@ -126,9 +127,9 @@ EOF
 clean() {
   rm -f $GRADLE_BUILD_FILE $GRADLE_SETTINGS_FILE 2> /dev/null || true
 }
-
-#@additional-declarations@
-#@additional-declarations@
+# @additional-declarations|laplacian.generator.project-template-1.0.0!scripts/publish-local_additional-declarations_.hbs.sh@
+# @+additional-declarations@
+# @additional-declarations@
 
 parse_args() {
   while getopts $OPT_NAMES OPTION;
@@ -153,7 +154,7 @@ parse_args() {
       ;;
     h) HELP='yes';;
     v) VERBOSE='yes';;
-    r) MAX_RECURSION=("${!OPTIND}"); OPTIND=$(($OPTIND+1));;
+    r) MAX_RECURSION="$OPTARG";;
     esac
   done
   ARGS=$@
