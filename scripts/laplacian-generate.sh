@@ -107,7 +107,7 @@ END
 gradle_file () {
   cat <<END > $GRADLE_FILE
 plugins {
-    id 'org.jetbrains.kotlin.jvm' version '1.3.70'
+    id 'org.jetbrains.kotlin.jvm' version '1.3.72'
     id 'maven-publish'
     id 'java-gradle-plugin'
     $PLUGINS

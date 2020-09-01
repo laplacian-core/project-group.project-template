@@ -68,7 +68,7 @@ project:
     local:
       $LOCAL_MODULE_REPOSITORY
     remote:
-    - https://github.com/nabla-squared/mvn-repo
+    - https://raw.github.com/nabla-squared/mvn-repo/master
   {{define 'project_types_modules' (filter project.subprojects '(eq @it.type "project-types")') ~}}
   {{#if project_types_modules ~}}
   models:

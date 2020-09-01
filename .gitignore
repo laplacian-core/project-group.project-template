@@ -2,6 +2,8 @@
 *.tmp
 *.log
 *.swp
+*.backup
+*.zip
 
 # General - Windows
 Thumbs.db
@@ -32,3 +34,11 @@ out/
 .NEXT/
 .PREV/
 /dest/
+
+
+# GCP
+.gcloud/
+
+# Terraform
+.terraform/
+*.tfstate

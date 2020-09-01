@@ -68,7 +68,7 @@ project:
     local:
       $LOCAL_MODULE_REPOSITORY
     remote:
-    - https://github.com/nabla-squared/mvn-repo
+    - https://raw.github.com/nabla-squared/mvn-repo/master
   model_files:
   - dest/$MODEL_DIR
 EOF
